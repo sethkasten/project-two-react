@@ -52,15 +52,11 @@ const SearchForm = () => {
         onChange={(e) => setCity(e.target.value)}
         className="input"
       />
-      <input
-        type="number"
-        name="distance"
-        id="distance"
-        value={distance}
-        placeholder="Enter maximum distance"
-        onChange={(e) => setDistance(e.target.value)}
-        className="input"
-      />
+      <select name="distance" id="distance">
+        <option value="10">10 miles</option>
+        <option value="25">25 miles</option>
+        <option value="50">50 miles</option>
+      </select>
       <button className="input" id="searchButton">
         Search
       </button>
