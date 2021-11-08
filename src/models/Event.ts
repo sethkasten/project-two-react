@@ -19,7 +19,7 @@ interface PriceRanges {
   max: number;
 }
 
-interface _Embedded {
+interface Embedded {
   venues: Venue[];
 }
 
@@ -51,5 +51,5 @@ export default interface Event {
   images: Images;
   dates: Dates;
   priceRanges: PriceRanges;
-  embedded: _Embedded;
+  _embedded: Embedded;
 }

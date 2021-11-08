@@ -1,5 +1,9 @@
 import Event from "./Event";
 
-export default interface EventResponse {
+interface Embedded {
   events: Event[];
+}
+
+export default interface EventResponse {
+  _embedded: Embedded;
 }

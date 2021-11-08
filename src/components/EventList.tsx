@@ -1,8 +1,9 @@
 import Event from "../models/Event";
+import EventResponse from "../models/EventResponse";
 import "./EventList.css";
 import SingleEvent from "./SingleEvent";
 
-export interface Props {
+interface Props {
   events: Event[];
 }
 
@@ -11,9 +12,11 @@ const EventList = ({ events }: Props) => {
     <div className="EventList">
       <h2>Events</h2>
       <ul>
-        {events.map((item) => (
-          <SingleEvent event={item} key={item.id} />
-        ))}
+        {events ? (
+          events.map((item) => <SingleEvent event={item} key={item.id} />)
+        ) : (
+          <p>loading...</p>
+        )}
       </ul>
     </div>
   );

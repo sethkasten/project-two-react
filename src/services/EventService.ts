@@ -1,15 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
-import EventResponse from "../../models/EventResponse";
-import SingleEventResponse from "../../models/SingleEventResponse";
+import EventResponse from "../models/EventResponse";
 
 const key: string = process.env.REACT_APP_TICKETMASTER_KEY || "";
 
-// function to get trending gifs
-export const getTrendingEvents = (): Promise<EventResponse> => {
+// function to get events near location
+export const getTrendingEvents = (location: string): Promise<EventResponse> => {
   return axios
     .get("https://app.ticketmaster.com/discovery/v2/events.json", {
-      params: { apikey: key },
+      params: { latlong: location, apikey: key },
     })
     .then((response) => {
       return response.data;
