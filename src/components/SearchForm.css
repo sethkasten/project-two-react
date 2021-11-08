@@ -1,0 +1,29 @@
+.SearchForm {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.SearchForm .input {
+  border-radius: 0;
+  border: none;
+  background-color: #9ad4d6;
+  color: #101935;
+  width: 100%;
+}
+
+.SearchForm .input::placeholder {
+  color: #10193580;
+}
+
+.SearchForm .input:hover {
+  background-color: #9ad4d6c8;
+}
+
+.SearchForm #startDate {
+  padding: 1px 2px;
+}
+
+.SearchForm #searchButton {
+  height: 40px;
+  font-weight: 750;
+}

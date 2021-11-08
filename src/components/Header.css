@@ -1,0 +1,18 @@
+.Header a {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration: none;
+  color: #101935;
+}
+
+.Header h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.Header .BucketAttributionContainer {
+  margin: 50px 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
