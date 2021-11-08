@@ -1,6 +1,7 @@
 .SearchForm {
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 5px;
 }
 
 .SearchForm .input {
@@ -9,6 +10,8 @@
   background-color: #9ad4d6;
   color: #101935;
   width: 100%;
+  border: 1px solid #101935;
+  padding: 10px 2px;
 }
 
 .SearchForm .input::placeholder {
@@ -19,11 +22,37 @@
   background-color: #9ad4d6c8;
 }
 
+.SearchForm #term {
+  border-radius: 10px 10px 0px 0px;
+}
+
 .SearchForm #startDate {
-  padding: 1px 2px;
+  color: #10193580;
 }
 
 .SearchForm #searchButton {
   height: 40px;
   font-weight: 750;
+  border-radius: 0px 0px 10px 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .SearchForm {
+    justify-content: space-evenly;
+    margin: 0px;
+    flex-wrap: nowrap;
+  }
+
+  .SearchForm .input {
+    padding: 0;
+    border: none;
+  }
+
+  .SearchForm #term {
+    border-radius: 0;
+  }
+
+  .SearchForm #searchButton {
+    border-radius: 0;
+  }
 }
