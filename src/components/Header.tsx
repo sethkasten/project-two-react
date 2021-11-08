@@ -7,14 +7,16 @@ const Header = () => {
       <Link to="/">
         <h1>Event Finder 9001</h1>
       </Link>
-      <Link to="/events/bucketlist">
-        <h2>Bucket List</h2>
-      </Link>
-      <h2>
-        <a href="https://developer.ticketmaster.com/">
-          Powered by TicketMaster
-        </a>
-      </h2>
+      <div className="BucketAttributionContainer">
+        <Link to="/events/bucketlist">
+          <h2>Bucket List</h2>
+        </Link>
+        <p>
+          <a href="https://developer.ticketmaster.com/">
+            Powered by TicketMaster
+          </a>
+        </p>
+      </div>
     </div>
   );
 };

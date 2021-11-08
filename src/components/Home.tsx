@@ -5,8 +5,8 @@ import SearchForm from "./SearchForm";
 const Home = () => {
   return (
     <div className="Home">
-      <SearchForm></SearchForm>
-      <EventList></EventList>
+      <SearchForm />
+      <EventList />
     </div>
   );
 };

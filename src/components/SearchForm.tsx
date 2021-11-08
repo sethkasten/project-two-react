@@ -32,6 +32,7 @@ const SearchForm = () => {
         value={term}
         placeholder="Keyword"
         onChange={(e) => setTerm(e.target.value)}
+        className="input"
       />
       <input
         type="date"
@@ -40,14 +41,7 @@ const SearchForm = () => {
         value={startDate}
         placeholder="Enter Start Date"
         onChange={(e) => setStartDate(e.target.value)}
-      />
-      <input
-        type="date"
-        name="endDate"
-        id="endDate"
-        value={endDate}
-        placeholder="Enter End Date"
-        onChange={(e) => setEndDate(e.target.value)}
+        className="input"
       />
       <input
         type="text"
@@ -56,6 +50,7 @@ const SearchForm = () => {
         value={city}
         placeholder="Enter City"
         onChange={(e) => setCity(e.target.value)}
+        className="input"
       />
       <input
         type="number"
@@ -64,8 +59,11 @@ const SearchForm = () => {
         value={distance}
         placeholder="Enter maximum distance"
         onChange={(e) => setDistance(e.target.value)}
+        className="input"
       />
-      <button>Search</button>
+      <button className="input" id="searchButton">
+        Search
+      </button>
     </form>
   );
 };
