@@ -8,7 +8,13 @@ interface Props {
 const SingleEvent = ({ event }: Props) => {
   return (
     <li className="Event">
-      <h3>{event.name}</h3>
+      <img src={event.images.url} alt={event.name} className="eventImage" />
+      <h3>Event Name:{event.name}</h3>
+      <h4>Dates:{event.dates.start.localDate}</h4>
+      <h4>Location:{event.embedded.venues}</h4>
+      <h4>
+        Price:{event.priceRanges.min}-{event.priceRanges.max}
+      </h4>
     </li>
   );
 };
