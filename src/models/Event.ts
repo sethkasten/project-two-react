@@ -48,8 +48,8 @@ export default interface Event {
   id: string;
   name: string;
   url: string;
-  images: Images;
+  images: Images[];
   dates: Dates;
-  priceRanges: PriceRanges;
+  priceRanges?: PriceRanges[] | undefined;
   _embedded: Embedded;
 }
