@@ -18,20 +18,17 @@ export const getTrendingEvents = (location: string): Promise<EventResponse> => {
 
 // function to get gifs by search term
 
-export const getEventsBySearchTerm = (
-  searchTerm: string,
-  searchDate: string,
-  searchRadius: string,
-  searchCity: string
-): Promise<EventResponse> => {
+export const getEventsBySearchTerm = (qsp: any): Promise<EventResponse> => {
   return axios
-    .get("https://api.ticketmaster.com/discovery/v2/events.json", {
+    .get("https://app.ticketmaster.com/discovery/v2/events.json", {
       params: {
         apikey: key,
-        keyword: searchTerm,
-        radius: searchRadius,
-        startDateTime: searchDate,
-        city: searchCity,
+        ...(qsp.searchTerm ? { keyword: qsp.searchTerm } : {}),
+        ...(qsp.searchRadius ? { radius: qsp.searchRadius } : {}),
+        ...(qsp.searchDate
+          ? { startDateTime: `${qsp.searchDate}T14:00:00Z` }
+          : {}),
+        ...(qsp.searchCity ? { city: qsp.searchCity } : {}),
       },
     })
     .then((response) => {

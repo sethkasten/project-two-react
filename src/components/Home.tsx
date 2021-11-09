@@ -8,8 +8,11 @@ import {
 import EventList from "./EventList";
 import "./Home.css";
 import SearchForm from "./SearchForm";
+import { QSP } from "../models/Event";
 
 const Home = () => {
+  // const [qsp, setQsp] = useState<QSP>({});
+
   const [events, setEvents] = useState<Event[]>([]);
   const [location, setLocation] = useState("");
   const searchTerm: string | null = new URLSearchParams(
@@ -27,12 +30,12 @@ const Home = () => {
 
   useEffect(() => {
     if (searchTerm || searchDate || searchCity || searchRadius) {
-      getEventsBySearchTerm(
-        searchTerm!,
-        searchDate!,
-        searchRadius!,
-        searchCity!
-      ).then((response) => {
+      getEventsBySearchTerm({
+        searchTerm,
+        searchDate,
+        searchCity,
+        searchRadius,
+      }).then((response) => {
         setEvents(response._embedded.events);
       });
     } else {
@@ -44,8 +47,8 @@ const Home = () => {
         });
       });
     }
-  }, [searchTerm || searchDate || searchCity || searchRadius]);
-
+  }, [searchTerm]);
+  // || searchDate || searchCity || searchRadius]
   return (
     <div className="Home">
       <SearchForm />

@@ -13,10 +13,10 @@ const SearchForm = () => {
     e.preventDefault();
     history.push(
       `/events/search?${new URLSearchParams({
-        keyword,
-        startDateTime,
-        city,
-        radius,
+        ...(keyword ? { keyword } : {}),
+        ...(startDateTime ? { startDateTime } : {}),
+        ...(city ? { city } : {}),
+        ...(radius ? { radius } : {}),
       })}`
     );
   };
