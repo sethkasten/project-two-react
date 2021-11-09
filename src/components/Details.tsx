@@ -20,7 +20,6 @@ const Details = () => {
   }, [id]);
 
   let time: string | undefined = singleEvent?.dates.start.localTime;
-  console.log(time);
   if (time?.charAt(0) === "1" && parseInt(time?.charAt(1)) > 2) {
     time = `${(parseInt(time?.slice(0, 2)) - 12).toString()}${time?.slice(
       2,

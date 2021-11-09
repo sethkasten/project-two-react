@@ -8,11 +8,8 @@ import {
 import EventList from "./EventList";
 import "./Home.css";
 import SearchForm from "./SearchForm";
-import { QSP } from "../models/Event";
 
 const Home = () => {
-  // const [qsp, setQsp] = useState<QSP>({});
-
   const [events, setEvents] = useState<Event[]>([]);
   const [location, setLocation] = useState("");
   const searchTerm: string | null = new URLSearchParams(
