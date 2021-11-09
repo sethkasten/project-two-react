@@ -1,5 +1,4 @@
 import Event from "../models/Event";
-import EventResponse from "../models/EventResponse";
 import "./EventList.css";
 import SingleEvent from "./SingleEvent";
 
