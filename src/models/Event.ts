@@ -1,3 +1,10 @@
+export interface QSP {
+  searchTerm?: string;
+  searchRadius?: string;
+  searchDate?: string;
+  searchCity?: string;
+}
+
 interface Images {
   url: string;
 }
