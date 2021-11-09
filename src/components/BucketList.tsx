@@ -1,7 +1,16 @@
+import { useContext } from "react";
+import BucketContext from "../context/BucketContext";
 import "./BucketList.css";
+import EventList from "./EventList";
 
 const BucketList = () => {
-  return <div className="BucketList">BucketList works</div>;
+  const { bucketList } = useContext(BucketContext);
+
+  return (
+    <div className="BucketList">
+      <EventList events={bucketList} />
+    </div>
+  );
 };
 
 export default BucketList;

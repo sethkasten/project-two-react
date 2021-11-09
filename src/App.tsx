@@ -20,13 +20,13 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/gifs/search" exact>
-           <Home />
+          <Route path="/events/search" exact>
+            <Home />
           </Route>
-          <Route path="/gifs/:id/details" exact>
+          <Route path="/events/:id/details" exact>
             <Details />
           </Route>
-          <Route path="/gifs/favorites">
+          <Route path="/events/bucketlist">
             <BucketList />
           </Route>
           <Route path="/">
