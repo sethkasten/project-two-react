@@ -1,7 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
 import EventResponse from "../models/EventResponse";
-import SingleEventResponse from "../models/SingleEventResponse";
+import Event from "../models/Event";
 
 const key: string = process.env.REACT_APP_TICKETMASTER_KEY || "";
 
@@ -16,7 +15,7 @@ export const getTrendingEvents = (location: string): Promise<EventResponse> => {
     });
 };
 
-// function to get gifs by search term
+// function to get events by search term
 
 export const getEventsBySearchTerm = (qsp: any): Promise<EventResponse> => {
   return axios
@@ -37,13 +36,18 @@ export const getEventsBySearchTerm = (qsp: any): Promise<EventResponse> => {
     });
 };
 
-// // function to get a gif by id
-// export const getGifById = (id: string): Promise<SingleEventResponse> => {
-//   return axios
-//     .get(`https://api.giphy.com/v1/gifs/${encodeURIComponent(id)}`, {
-//       params: { api_key: key },
-//     })
-//     .then((response) => {
-//       return response.data;
-//     });
-// };
+// // function to get a event by id
+export const getEventById = (id: string): Promise<Event> => {
+  return axios
+    .get(
+      `https://app.ticketmaster.com/discovery/v2/events/${encodeURIComponent(
+        id
+      )}.json`,
+      {
+        params: { apikey: key },
+      }
+    )
+    .then((response) => {
+      return response.data;
+    });
+};

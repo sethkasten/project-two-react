@@ -2,6 +2,7 @@ import "./SingleEvent.css";
 import Event from "../models/Event";
 import BucketContext from "../context/BucketContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   event: Event;
@@ -12,13 +13,16 @@ const SingleEvent = ({ event }: Props) => {
 
   return (
     <li className="Event">
-      <img
-        src={event?.images[0].url}
-        alt={event?.name}
-        className="eventImage"
-      />
-
-      <h3>Event Name: {event.name}</h3>
+      <Link to={`/events/${event?.id}/details`}>
+        <img
+          src={event?.images[0].url}
+          alt={`${event?.name} thumbnail`}
+          className="eventImage"
+        />
+      </Link>
+      <Link to={`/events/${event?.id}/details`}>
+        <h3>Event Name: {event.name}</h3>
+      </Link>
       <h4>Dates: {event.dates.start.localDate}</h4>
       <h4>Location: {event._embedded.venues[0].name}</h4>
       {event?.priceRanges ? (

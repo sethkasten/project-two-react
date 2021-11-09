@@ -59,4 +59,5 @@ export default interface Event {
   dates: Dates;
   priceRanges?: PriceRanges[] | undefined;
   _embedded: Embedded;
+  seatmap?: string;
 }
