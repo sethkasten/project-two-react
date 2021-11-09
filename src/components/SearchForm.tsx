@@ -3,22 +3,20 @@ import { useHistory } from "react-router";
 import "./SearchForm.css";
 
 const SearchForm = () => {
-  const [term, setTerm] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [startDateTime, setStartDateTime] = useState("");
   const [city, setCity] = useState("");
-  const [distance, setDistance] = useState("");
+  const [radius, setRadius] = useState("");
   const history = useHistory();
 
   const submitHandler = (e: FormEvent): void => {
     e.preventDefault();
     history.push(
       `/events/search?${new URLSearchParams({
-        term,
-        startDate,
-        endDate,
+        keyword,
+        startDateTime,
         city,
-        distance,
+        radius,
       })}`
     );
   };
@@ -29,18 +27,18 @@ const SearchForm = () => {
         type="text"
         name="term"
         id="term"
-        value={term}
+        value={keyword}
         placeholder="Keyword"
-        onChange={(e) => setTerm(e.target.value)}
+        onChange={(e) => setKeyword(e.target.value)}
         className="input"
       />
       <input
         type="date"
         name="startDate"
         id="startDate"
-        value={startDate}
+        value={startDateTime}
         placeholder="Enter Start Date"
-        onChange={(e) => setStartDate(e.target.value)}
+        onChange={(e) => setStartDateTime(e.target.value)}
         className="input"
       />
       <input
@@ -52,7 +50,12 @@ const SearchForm = () => {
         onChange={(e) => setCity(e.target.value)}
         className="input"
       />
-      <select name="distance" id="distance">
+      <select
+        name="distance"
+        id="distance"
+        onChange={(e) => setRadius(e.target.value)}
+      >
+        <option value="">-</option>
         <option value="10">10 miles</option>
         <option value="25">25 miles</option>
         <option value="50">50 miles</option>
