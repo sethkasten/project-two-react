@@ -8,7 +8,7 @@
   align-items: center;
   padding: 5px;
   margin: 5px;
-  /* width: 99vw; */
+  border-bottom: 1px solid #dbcbd880;
 }
 
 .Event .td1 {
@@ -28,10 +28,23 @@
 }
 .Event .td6 {
   width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Event :link {
   text-decoration: none;
+  color: #dbcbd8;
+}
+
+.Event :visited {
+  color: #71949d;
+}
+
+.Event .detailsLink:hover {
+  color: #627f86;
 }
 
 .Event h4 {
