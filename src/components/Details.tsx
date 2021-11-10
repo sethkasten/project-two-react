@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { getEventById } from "../services/EventService";
 import "./Details.css";
 import Event from "../models/Event";
+import { Link } from "react-router-dom";
 
 interface RouteParams {
   id: string;
@@ -37,10 +38,12 @@ const Details = () => {
       <img
         src={singleEvent?.images[0].url}
         alt={`${singleEvent?.name} thumbnail`}
-        className="eventImage"
+        className="detailsImage"
       />
-      <h4>Dates: {singleEvent?.dates.start.localDate}</h4>
-      <h4>Time: {time}</h4>
+      <div className="date-time">
+        <h4>Dates: {singleEvent?.dates.start.localDate}</h4>
+        <h4>Time: {time}</h4>
+      </div>
       <h4>Location: {singleEvent?._embedded.venues[0].name}</h4>
       {singleEvent?.priceRanges ? (
         <h4>
@@ -53,6 +56,11 @@ const Details = () => {
       <h4>
         <a href={`${singleEvent?.url}`}>Purchase tickets at TicketMaster</a>
       </h4>
+      <p className="back-home">
+        <Link to="/">
+          <i className="fas fa-caret-left"></i> Back Home
+        </Link>
+      </p>
     </div>
   );
 };
