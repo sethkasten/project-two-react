@@ -10,7 +10,7 @@ const EventList = ({ events }: Props) => {
   return (
     <div className="EventList">
       <h2>Events</h2>
-      <ul>
+      <ul className="link">
         {events ? (
           events.map((item) => <SingleEvent event={item} key={item.id} />)
         ) : (
