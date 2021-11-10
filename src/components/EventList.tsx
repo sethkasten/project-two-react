@@ -9,14 +9,13 @@ interface Props {
 const EventList = ({ events }: Props) => {
   return (
     <div className="EventList">
-      <h2>Events</h2>
-      <ul className="link">
+      <table className="eventTable">
         {events ? (
           events.map((item) => <SingleEvent event={item} key={item.id} />)
         ) : (
           <p>loading...</p>
         )}
-      </ul>
+      </table>
     </div>
   );
 };
