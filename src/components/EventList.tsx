@@ -10,11 +10,13 @@ const EventList = ({ events }: Props) => {
   return (
     <div className="EventList">
       <table className="eventTable">
-        {events ? (
-          events.map((item) => <SingleEvent event={item} key={item.id} />)
-        ) : (
-          <p>loading...</p>
-        )}
+        <tbody>
+          {events ? (
+            events.map((item) => <SingleEvent event={item} key={item.id} />)
+          ) : (
+            <p>loading...</p>
+          )}
+        </tbody>
       </table>
     </div>
   );

@@ -16,15 +16,19 @@
 }
 .Event .td2 {
   width: 30%;
+  text-align: center;
 }
 .Event .td3 {
   width: 20%;
+  text-align: center;
 }
 .Event .td4 {
   width: 20%;
+  text-align: center;
 }
 .Event .td5 {
   width: 20%;
+  text-align: center;
 }
 .Event .td6 {
   width: 10%;
@@ -32,6 +36,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .Event :link {

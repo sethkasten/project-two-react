@@ -35,6 +35,8 @@ const Home = () => {
       }).then((response) => {
         if (response._embedded) {
           setEvents(response._embedded.events);
+        } else {
+          setEvents([]);
         }
       });
     } else {
@@ -49,8 +51,14 @@ const Home = () => {
   }, [searchTerm]);
   return (
     <div className="Home">
-      <SearchForm />
-      <EventList events={events} />
+      {events.length > 0 ? (
+        <>
+          <SearchForm />
+          <EventList events={events} />
+        </>
+      ) : (
+        <h3>No Events Found</h3>
+      )}
     </div>
   );
 };
