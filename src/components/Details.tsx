@@ -57,7 +57,7 @@ const Details = () => {
         <a href={`${singleEvent?.url}`}>Purchase tickets at TicketMaster</a>
       </h4>
       <p className="back-home">
-        <Link to="/">
+        <Link to="/" className="nav-link">
           <i className="fas fa-caret-left"></i> Back Home
         </Link>
       </p>

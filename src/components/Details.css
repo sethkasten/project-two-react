@@ -48,6 +48,10 @@
   font-weight: 1000;
 }
 
+.Details .nav-link {
+  color: #9ad4d6;
+}
+
 /* {"Cyber Grape":"#564787"
     "Languid Lavender":"#dbcbd8"
     "Azure X 11 Web Color":"#f2fdff"
