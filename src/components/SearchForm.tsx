@@ -67,7 +67,7 @@ const SearchForm = () => {
         }}
         className="input disabled"
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
           Distance
         </option>
         <option value="10">10 miles</option>
