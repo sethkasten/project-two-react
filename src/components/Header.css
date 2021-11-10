@@ -1,7 +1,7 @@
 .Header a {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Anton", sans-serif;
   text-decoration: none;
-  color: #101935;
+  color: #f2fdff;
 }
 
 .Header h1 {
@@ -12,7 +12,9 @@
 }
 
 .Header .BucketAttributionContainer {
-  margin: 50px 10px 10px 10px;
   display: flex;
   justify-content: space-between;
+  line-height: 0;
+  background-color: #101935;
+  padding: 50px 20px 0px 20px;
 }
