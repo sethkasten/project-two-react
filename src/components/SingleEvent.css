@@ -2,8 +2,27 @@
   display: none;
 }
 
+.Event {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.Event :link {
+  text-decoration: none;
+}
+
+.Event h3,
+h4 {
+  margin: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .eventImage {
     display: block;
+    height: 100px;
+    width: 150px;
   }
 }
