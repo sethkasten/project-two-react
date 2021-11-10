@@ -20,6 +20,11 @@ const SearchForm = () => {
       })}`
     );
   };
+  const disabledClass = (e: any): void => {
+    !e.target.value
+      ? (e.target.className += " disabled")
+      : (e.target.className = "input");
+  };
 
   return (
     <form className="SearchForm" onSubmit={submitHandler}>
@@ -38,8 +43,11 @@ const SearchForm = () => {
         id="startDate"
         value={startDateTime}
         placeholder="Enter Start Date"
-        onChange={(e) => setStartDateTime(e.target.value)}
-        className="input"
+        onChange={(e) => {
+          setStartDateTime(e.target.value);
+          disabledClass(e);
+        }}
+        className="input disabled"
       />
       <input
         type="text"
@@ -53,9 +61,15 @@ const SearchForm = () => {
       <select
         name="distance"
         id="distance"
-        onChange={(e) => setRadius(e.target.value)}
+        onChange={(e) => {
+          setRadius(e.target.value);
+          disabledClass(e);
+        }}
+        className="input disabled"
       >
-        <option value="">-</option>
+        <option value="" disabled selected>
+          Distance
+        </option>
         <option value="10">10 miles</option>
         <option value="25">25 miles</option>
         <option value="50">50 miles</option>
