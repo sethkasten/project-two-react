@@ -33,7 +33,9 @@ const Home = () => {
         searchCity,
         searchRadius,
       }).then((response) => {
-        setEvents(response._embedded.events);
+        if (response._embedded) {
+          setEvents(response._embedded.events);
+        }
       });
     } else {
       navigator.geolocation.getCurrentPosition((response) => {
