@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { getEventById } from "../services/EventService";
 import "./Details.css";
 import Event from "../models/Event";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 interface RouteParams {
   id: string;
@@ -12,6 +12,12 @@ interface RouteParams {
 const Details = () => {
   const [singleEvent, setSingleEvent] = useState<Event>();
   const id = useParams<RouteParams>().id;
+
+  const history = useHistory();
+
+  const goBack = () => {
+    history.goBack();
+  };
 
   useEffect(() => {
     getEventById(id).then((response) => {
@@ -24,13 +30,20 @@ const Details = () => {
   if (time?.charAt(0) === "1" && parseInt(time?.charAt(1)) > 2) {
     time = `${(parseInt(time?.slice(0, 2)) - 12).toString()}${time?.slice(
       2,
-      8
+      5
     )} PM`;
   } else if (parseInt(time!?.slice(0, 2)) === 12) {
-    time = `${time} PM`;
+    time = `${time?.slice(0, -3)} PM`;
   } else {
-    time = `${time} AM`;
+    time = `${time?.slice(0, -3)} AM`;
   }
+
+  const correctedDate: string =
+    singleEvent?.dates.start.localDate.slice(5, 7) +
+    "-" +
+    singleEvent?.dates.start.localDate.slice(8) +
+    "-" +
+    singleEvent?.dates.start.localDate.slice(0, 4);
 
   return (
     <div className="Details">
@@ -41,14 +54,14 @@ const Details = () => {
         className="detailsImage"
       />
       <div className="date-time">
-        <h4>Dates: {singleEvent?.dates.start.localDate}</h4>
-        <h4>Time: {time}</h4>
+        <h4>Date: {correctedDate}</h4>
+        {time === undefined ? <h4>Time: {time}</h4> : <h4>Time: TBD</h4>}
       </div>
       <h4>Location: {singleEvent?._embedded.venues[0].name}</h4>
       {singleEvent?.priceRanges ? (
         <h4>
-          Price: ${singleEvent?.priceRanges[0].min}-$
-          {singleEvent?.priceRanges[0].max}
+          Price: ${singleEvent.priceRanges[0].min.toFixed(0)}-$
+          {singleEvent.priceRanges[0].max.toFixed(0)}
         </h4>
       ) : (
         <h4></h4>
@@ -56,10 +69,8 @@ const Details = () => {
       <h4>
         <a href={`${singleEvent?.url}`}>Purchase tickets at TicketMaster</a>
       </h4>
-      <p className="back-home">
-        <Link to="/" className="nav-link">
-          <i className="fas fa-caret-left"></i> Back Home
-        </Link>
+      <p className="back-home" onClick={goBack}>
+        <i className="fas fa-caret-left"></i> Back to search results
       </p>
     </div>
   );
