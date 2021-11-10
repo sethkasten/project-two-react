@@ -18,3 +18,8 @@
   background-color: #101935;
   padding: 60px 20px 0px 20px;
 }
+
+.Header a:hover,
+.nav-link:hover {
+  color: #627f86;
+}
