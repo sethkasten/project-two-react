@@ -46,17 +46,13 @@
   font-family: "Nunito", sans-serif;
   font-weight: 1000;
   text-decoration: none;
-}
-
-.Details a,
-.nav-link {
   color: #dbcbd8;
-  text-decoration: none;
 }
 
-.Details a:hover,
-.nav-link:hover {
+.Details .back-home:hover {
   color: #627f86;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* {"Cyber Grape":"#564787"

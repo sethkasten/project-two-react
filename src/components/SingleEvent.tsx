@@ -2,7 +2,7 @@ import "./SingleEvent.css";
 import Event from "../models/Event";
 import BucketContext from "../context/BucketContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface Props {
   event: Event;
@@ -10,6 +10,13 @@ interface Props {
 
 const SingleEvent = ({ event }: Props) => {
   const { addBucket, removeBucket, isBucket } = useContext(BucketContext);
+
+  const correctedDate: string =
+    event.dates.start.localDate.slice(5, 7) +
+    "-" +
+    event.dates.start.localDate.slice(8) +
+    "-" +
+    event.dates.start.localDate.slice(0, 4);
 
   return (
     <tr className="Event">
@@ -28,7 +35,7 @@ const SingleEvent = ({ event }: Props) => {
         </Link>
       </td>
       <td className="td3">
-        <h4>{event.dates.start.localDate}</h4>
+        <h4>{correctedDate}</h4>
       </td>
       <td className="td4">
         <h4>{event._embedded.venues[0].name}</h4>
@@ -36,7 +43,8 @@ const SingleEvent = ({ event }: Props) => {
       <td className="td5">
         {event?.priceRanges ? (
           <h4>
-            ${event.priceRanges[0].min}-${event.priceRanges[0].max}
+            ${event.priceRanges[0].min.toFixed(0)}-$
+            {event.priceRanges[0].max.toFixed(0)}
           </h4>
         ) : (
           <h4>Price Unavailable</h4>
