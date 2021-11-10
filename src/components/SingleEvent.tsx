@@ -38,12 +38,16 @@ const SingleEvent = ({ event }: Props) => {
         <h4>{correctedDate}</h4>
       </td>
       <td className="td4">
-        <h4>{event._embedded.venues[0].name}</h4>
+        <h4>
+          {event.hasOwnProperty("_embedded")
+            ? event._embedded.venues[0].name
+            : "Venue Unavailable"}
+        </h4>
       </td>
       <td className="td5">
         {event?.priceRanges ? (
           <h4>
-            ${event.priceRanges[0].min.toFixed(0)}-$
+            ${event.priceRanges[0].min.toFixed(0)} - $
             {event.priceRanges[0].max.toFixed(0)}
           </h4>
         ) : (
