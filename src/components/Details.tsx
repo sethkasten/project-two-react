@@ -65,8 +65,11 @@ const Details = () => {
         <h4>Date: {correctedDate}</h4>
         {time === undefined ? <h4> Time: TBD</h4> : <h4> Time: {time}</h4>}
       </div>
-      {singleEvent?._embedded.venues[0].city.hasOwnProperty("name") &&
-      singleEvent?._embedded.venues[0].state.hasOwnProperty("stateCode") ? (
+      {singleEvent?._embedded?.venues?.length &&
+      singleEvent._embedded.venues[0].city &&
+      singleEvent._embedded.venues[0].state &&
+      singleEvent._embedded.venues[0].city.hasOwnProperty("name") &&
+      singleEvent._embedded.venues[0].state.hasOwnProperty("stateCode") ? (
         <h4>
           Location: {singleEvent?._embedded.venues[0].city.name},{" "}
           {singleEvent?._embedded.venues[0].state.stateCode}
@@ -74,7 +77,8 @@ const Details = () => {
       ) : (
         <h4>Location Unavailable</h4>
       )}
-      {singleEvent?._embedded.venues[0].hasOwnProperty("name") ? (
+      {singleEvent?._embedded?.venues?.length &&
+      singleEvent._embedded.venues[0].name ? (
         <h4>Venue: {singleEvent?._embedded.venues[0].name}</h4>
       ) : (
         <h4>Venue Unavailable</h4>
