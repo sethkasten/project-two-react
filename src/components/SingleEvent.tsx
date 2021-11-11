@@ -35,7 +35,6 @@ const SingleEvent = ({ event }: Props) => {
       </td>
       <td className="td2">
         <h3>
-          {" "}
           {event.hasOwnProperty("name") ? (
             <Link to={`/events/${event?.id}/details`} className="detailsLink">
               {event.name}
@@ -54,16 +53,19 @@ const SingleEvent = ({ event }: Props) => {
       </td>
       <td className="td4">
         <div>
-          <h4>
-            {event.hasOwnProperty("_embedded")
-              ? `${event._embedded.venues[0].city.name}, ${event._embedded.venues[0].state.stateCode}`
-              : "N/A"}
-          </h4>
-          <h4>
-            {event.hasOwnProperty("_embedded")
-              ? event._embedded.venues[0].name
-              : "Venue Unavailable"}
-          </h4>
+          {event._embedded.hasOwnProperty("venues") ? (
+            <h4>
+              {event._embedded.venues[0].city.name},{" "}
+              {event._embedded.venues[0].state.stateCode}
+            </h4>
+          ) : (
+            <h4>N/A</h4>
+          )}
+          {event._embedded.hasOwnProperty("venues") ? (
+            <h4>{event._embedded.venues[0].name}</h4>
+          ) : (
+            <h4>Venue Unavailable</h4>
+          )}
         </div>
       </td>
       <td className="td5">
