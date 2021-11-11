@@ -87,19 +87,11 @@ const SingleEvent = ({ event, i }: Props) => {
         )}
       </td>
       <td className="td6">
+        <h4>Bucket List</h4>
         {!isBucket(event?.id) ? (
-          <>
-            <h4>Add to Bucket List</h4>
-            <i className="far fa-star" onClick={() => addBucket(event)}></i>
-          </>
+          <i className="far fa-star" onClick={() => addBucket(event)}></i>
         ) : (
-          <>
-            <h4>Remove from Bucket List</h4>
-            <i
-              className="fas fa-star"
-              onClick={() => removeBucket(event.id)}
-            ></i>
-          </>
+          <i className="fas fa-star" onClick={() => removeBucket(event.id)}></i>
         )}
       </td>
     </tr>
