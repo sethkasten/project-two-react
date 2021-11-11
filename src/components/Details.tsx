@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { getEventById } from "../services/EventService";
 import "./Details.css";
 import Event from "../models/Event";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 interface RouteParams {
   id: string;
@@ -47,28 +47,45 @@ const Details = () => {
 
   return (
     <div className="Details">
-      <h2>{singleEvent?.name}</h2>
-      <img
-        src={singleEvent?.images[0].url}
-        alt={`${singleEvent?.name} thumbnail`}
-        className="detailsImage"
-      />
+      {singleEvent?.hasOwnProperty("name") ? (
+        <h2>{singleEvent?.name}</h2>
+      ) : (
+        <h2>Name Unavailable</h2>
+      )}
+      {singleEvent?.hasOwnProperty("images") ? (
+        <img
+          src={singleEvent?.images[0].url}
+          alt={`${singleEvent?.name} thumbnail`}
+          className="detailsImage"
+        />
+      ) : (
+        <h4>Image Unavailable</h4>
+      )}
       <div className="date-time">
         <h4>Date: {correctedDate}</h4>
         {time === undefined ? <h4>Time: {time}</h4> : <h4>Time: TBD</h4>}
       </div>
-      <h4>Location: {singleEvent?._embedded.venues[0].name}</h4>
+      {singleEvent?._embedded.venues[0].hasOwnProperty("name") ? (
+        <h4>Location: {singleEvent?._embedded.venues[0].name}</h4>
+      ) : (
+        <h4>Venue Unavailable</h4>
+      )}
+
       {singleEvent?.priceRanges ? (
         <h4>
           Price: ${singleEvent.priceRanges[0].min.toFixed(0)}-$
           {singleEvent.priceRanges[0].max.toFixed(0)}
         </h4>
       ) : (
-        <h4></h4>
+        <h4>Price Unavailable</h4>
       )}
-      <h4>
-        <a href={`${singleEvent?.url}`}>Purchase tickets at TicketMaster</a>
-      </h4>
+      {singleEvent?.hasOwnProperty("url") ? (
+        <h4>
+          <a href={`${singleEvent?.url}`}>Purchase tickets at TicketMaster</a>
+        </h4>
+      ) : (
+        <h4>TicketMaster link Unavailable</h4>
+      )}
       <p className="back-home" onClick={goBack}>
         <i className="fas fa-caret-left"></i> Back to search results
       </p>
