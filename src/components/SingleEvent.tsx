@@ -53,11 +53,18 @@ const SingleEvent = ({ event }: Props) => {
         )}
       </td>
       <td className="td4">
-        <h4>
-          {event.hasOwnProperty("_embedded")
-            ? event._embedded.venues[0].name
-            : "Venue Unavailable"}
-        </h4>
+        <div>
+          <h4>
+            {event.hasOwnProperty("_embedded")
+              ? `${event._embedded.venues[0].city.name}, ${event._embedded.venues[0].state.stateCode}`
+              : "N/A"}
+          </h4>
+          <h4>
+            {event.hasOwnProperty("_embedded")
+              ? event._embedded.venues[0].name
+              : "Venue Unavailable"}
+          </h4>
+        </div>
       </td>
       <td className="td5">
         {event?.priceRanges ? (

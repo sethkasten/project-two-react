@@ -13,8 +13,16 @@
   color: #101935;
   width: 100%;
   border: 1px solid #101935;
-  padding: 10px 2px;
+  padding: 10px 0px;
   text-align: center;
+}
+
+.SearchForm #startDate {
+  text-indent: 23px;
+}
+
+.SearchForm #distance {
+  text-indent: 10px;
 }
 
 .SearchForm .input::placeholder {
