@@ -94,11 +94,11 @@ const SingleEvent = ({ event, i }: Props) => {
           </>
         ) : (
           <>
+            <h4>Remove from Bucket List</h4>
             <i
               className="fas fa-star"
               onClick={() => removeBucket(event.id)}
             ></i>
-            <h4>Remove from Bucket List</h4>
           </>
         )}
       </td>
