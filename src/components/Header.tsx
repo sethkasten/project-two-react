@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="Header">
       <Link to="/">
-        <h1>Event Finder 9001</h1>
+        <h1>Event Den</h1>
       </Link>
       <div className="BucketAttributionContainer">
         <Link to="/events/bucketlist">

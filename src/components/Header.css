@@ -1,3 +1,7 @@
+.Header {
+  background-image: url("../header-background-mobile.png");
+}
+
 .Header a {
   font-family: "Anton", sans-serif;
   text-decoration: none;
@@ -15,11 +19,16 @@
   display: flex;
   justify-content: space-between;
   line-height: 0;
-  background-color: #101935;
   padding: 60px 20px 0px 20px;
 }
 
 .Header a:hover,
 .nav-link:hover {
   color: #627f86;
+}
+
+@media screen and (min-width: 768px) {
+  .Header {
+    background-image: url("../header-background.png");
+  }
 }

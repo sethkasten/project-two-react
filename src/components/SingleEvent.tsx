@@ -55,7 +55,7 @@ const SingleEvent = ({ event }: Props) => {
         )}
       </td>
       <td className="td6">
-        <h4>Add to Bucketlist</h4>
+        <h4>Add to Bucket List</h4>
         {!isBucket(event?.id) ? (
           <i className="far fa-star" onClick={() => addBucket(event)}></i>
         ) : (
