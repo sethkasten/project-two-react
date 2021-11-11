@@ -2,7 +2,7 @@ import "./SingleEvent.css";
 import Event from "../models/Event";
 import BucketContext from "../context/BucketContext";
 import { useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface Props {
   event: Event;
@@ -21,21 +21,36 @@ const SingleEvent = ({ event }: Props) => {
   return (
     <tr className="Event">
       <td className="td1">
-        <Link to={`/events/${event?.id}/details`}>
-          <img
-            src={event?.images[0].url}
-            alt={`${event?.name} thumbnail`}
-            className="eventImage"
-          />
-        </Link>
+        {event.hasOwnProperty("images") ? (
+          <Link to={`/events/${event?.id}/details`}>
+            <img
+              src={event?.images[0].url}
+              alt={`${event?.name} thumbnail`}
+              className="eventImage"
+            />
+          </Link>
+        ) : (
+          <h4>Image Unavailable</h4>
+        )}
       </td>
       <td className="td2">
-        <Link to={`/events/${event?.id}/details`} className="detailsLink">
-          <h3>{event.name}</h3>
-        </Link>
+        <h3>
+          {" "}
+          {event.hasOwnProperty("name") ? (
+            <Link to={`/events/${event?.id}/details`} className="detailsLink">
+              {event.name}
+            </Link>
+          ) : (
+            "Name Unavailable"
+          )}
+        </h3>
       </td>
       <td className="td3">
-        <h4>{correctedDate}</h4>
+        {event.hasOwnProperty("dates") ? (
+          <h4>{correctedDate}</h4>
+        ) : (
+          <h4>Date Unavailable</h4>
+        )}
       </td>
       <td className="td4">
         <h4>

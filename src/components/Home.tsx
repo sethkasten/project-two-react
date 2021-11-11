@@ -48,7 +48,7 @@ const Home = () => {
         });
       });
     }
-  }, [searchTerm]);
+  }, [searchTerm, searchDate, searchCity, searchRadius]);
   return (
     <div className="Home">
       {events.length > 0 ? (
@@ -57,7 +57,9 @@ const Home = () => {
           <EventList events={events} />
         </>
       ) : (
-        <h3>No Events Found</h3>
+        <div className="h2Container">
+          <h2>No Events Found</h2>
+        </div>
       )}
     </div>
   );
