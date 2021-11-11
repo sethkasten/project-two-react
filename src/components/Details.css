@@ -55,6 +55,12 @@
   text-decoration: none;
 }
 
+.Details .purchase:hover {
+  color: #627f86;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* {"Cyber Grape":"#564787"
     "Languid Lavender":"#dbcbd8"
     "Azure X 11 Web Color":"#f2fdff"

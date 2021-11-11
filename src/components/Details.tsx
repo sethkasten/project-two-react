@@ -90,7 +90,9 @@ const Details = () => {
       )}
       {singleEvent?.hasOwnProperty("url") ? (
         <h4>
-          <a href={`${singleEvent?.url}`}>Purchase tickets at TicketMaster</a>
+          <a className="purchase" href={`${singleEvent?.url}`}>
+            Purchase tickets at TicketMaster
+          </a>
         </h4>
       ) : (
         <h4>TicketMaster link Unavailable</h4>
