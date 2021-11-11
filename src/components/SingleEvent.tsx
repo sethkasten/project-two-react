@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 
 interface Props {
   event: Event;
+  i: number;
 }
 
-const SingleEvent = ({ event }: Props) => {
+const SingleEvent = ({ event, i }: Props) => {
+  console.log(event._embedded, event, i);
   const { addBucket, removeBucket, isBucket } = useContext(BucketContext);
 
   const correctedDate: string =
@@ -53,7 +55,11 @@ const SingleEvent = ({ event }: Props) => {
       </td>
       <td className="td4">
         <div>
-          {event._embedded.hasOwnProperty("venues") ? (
+          {event?._embedded?.venues?.length &&
+          event._embedded.venues[0].city &&
+          event._embedded.venues[0].state &&
+          event._embedded.venues[0].city.hasOwnProperty("name") &&
+          event._embedded.venues[0].state.hasOwnProperty("stateCode") ? (
             <h4>
               {event._embedded.venues[0].city.name},{" "}
               {event._embedded.venues[0].state.stateCode}
@@ -61,7 +67,9 @@ const SingleEvent = ({ event }: Props) => {
           ) : (
             <h4>N/A</h4>
           )}
-          {event._embedded.hasOwnProperty("venues") ? (
+
+          {event?._embedded?.venues?.length &&
+          event._embedded.venues[0].name ? (
             <h4>{event._embedded.venues[0].name}</h4>
           ) : (
             <h4>Venue Unavailable</h4>

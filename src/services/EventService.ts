@@ -31,6 +31,7 @@ export const getEventsBySearchTerm = (qsp: any): Promise<EventResponse> => {
       },
     })
     .then((response) => {
+      console.log(response.data);
       return response.data;
     });
 };
