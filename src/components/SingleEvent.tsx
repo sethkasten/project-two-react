@@ -46,11 +46,11 @@ const SingleEvent = ({ event }: Props) => {
         </h3>
       </td>
       <td className="td3">
-        <h4>
-          {event.hasOwnProperty("name")
-            ? { correctedDate }
-            : "Date Unavailable"}
-        </h4>
+        {event.hasOwnProperty("dates") ? (
+          <h4>{correctedDate}</h4>
+        ) : (
+          <h4>Date Unavailable</h4>
+        )}
       </td>
       <td className="td4">
         <h4>
